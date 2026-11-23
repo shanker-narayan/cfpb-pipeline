@@ -1,5 +1,7 @@
 #011 Fetch Complaints Notebook - Notes
 
+### NOTE: 12-month backfill (2025-11-23 -> 2026-11-22) completed as one-time job
+###### ~7.1 M rows, 4.25 MB, 18 min 15 sec
 
 ### 011 · Fetch CFPB complaints → landing volume
 
