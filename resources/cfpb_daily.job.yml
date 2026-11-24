@@ -1,0 +1,21 @@
+resources:
+  jobs:
+    cfpb_daily:
+      name: cfpb_daily
+      parameters:
+        - name: catalog
+          default: ${var.catalog}
+        - name: run_date
+          default: ""
+      schedule:
+        quartz_cron_expression: "0 0 7 * * ?"
+        timezone_id: America/New_York
+      tasks:
+        - task_key: fetch
+          notebook_task:
+            notebook_path: ../01_ingestion/011_fetch_complaints.ipynb
+        - task_key: bronze
+          depends_on:
+            - task_key: fetch
+          notebook_task:
+            notebook_path: ../01_ingestion/014_bronze_autoloader.ipynb
